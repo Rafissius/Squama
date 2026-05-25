@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DAL_Bitacora.cs" />
     <Compile Include="DAL_General.cs" />
+    <Compile Include="DAL_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

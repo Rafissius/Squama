@@ -15,7 +15,8 @@ namespace DAL
 
         public DAL_General()
         {
-            connectionString = ConfigurationManager.ConnectionStrings["ConexionPrincipal"].ConnectionString;
+            //connectionString = ConfigurationManager.ConnectionStrings["ConexionPrincipal"].ConnectionString;
+            connectionString = "Server=localhost\\SQLEXPRESS;Database=Squama;Trusted_Connection=True;";
         }
 
         private SqlConnection CrearConexion()

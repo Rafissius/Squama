@@ -29,6 +29,8 @@
       --input-bdr:    rgba(166,122,20,0.65);
       --ph:           #8c6647;
       --feat-bg:      rgba(113,47,47,0.40);
+      --error:        #ff6b6b;
+      --blocked:      #ff9f43;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -125,13 +127,11 @@
     }
 
     .logo-img {
-  
-           width:clamp(500px,50vw,500px);
-     margin-left:-4.5em;
-
-margin-right:-0.45em;
-margin-bottom:0.12em;
-object-fit:contain;
+      width: clamp(500px,50vw,500px);
+      margin-left: -4.5em;
+      margin-right: -0.45em;
+      margin-bottom: 0.12em;
+      object-fit: contain;
     }
 
     .logo-name {
@@ -140,12 +140,10 @@ object-fit:contain;
       color: var(--gold-mid);
       letter-spacing: 6px;
       text-shadow: 0 0 50px rgba(166,122,20,0.5), 0 4px 10px rgba(0,0,0,0.9);
-           margin-left:-2em;
-
+      margin-left: -2em;
     }
 
     .logo-sub {
-
       font-family: 'IM Fell English', serif;
       font-style: italic;
       font-size: clamp(18px, 2.6vw, 30px);
@@ -154,7 +152,7 @@ object-fit:contain;
     }
 
     /* ══════════════════════════════════════════════════════════
-       BODY ROW — features absolutas + card centrada
+       BODY ROW
     ══════════════════════════════════════════════════════════ */
     .body-row {
       position: relative;
@@ -166,7 +164,6 @@ object-fit:contain;
       animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.25s both;
     }
 
-    /* Features: absolutas a la izquierda — no desplazan la card */
     .features {
       position: absolute;
       left: 0;
@@ -202,7 +199,7 @@ object-fit:contain;
     }
 
     /* ══════════════════════════════════════════════════════════
-       CARD — ancha y centrada
+       CARD
     ══════════════════════════════════════════════════════════ */
     .card-wrap {
       position: relative;
@@ -252,13 +249,17 @@ object-fit:contain;
       margin-top: 8px;
     }
 
+    /* Párrafo de descripción / mensaje dinámico */
     .card-desc {
       text-align: center;
       font-family: 'IM Fell English', serif;
       font-style: italic;
       font-size: clamp(13px, 1.5vw, 18px);
       color: var(--gold-soft);
+      transition: color 0.3s;
     }
+    .card-desc.msg-error   { color: var(--error);   font-style: normal; }
+    .card-desc.msg-blocked { color: var(--blocked);  font-style: normal; }
 
     .card-divider {
       height: 1px;
@@ -323,17 +324,10 @@ object-fit:contain;
     .btn:hover  { filter: brightness(1.15); transform: translateY(-2px); }
     .btn:active { filter: brightness(0.90); transform: translateY(1px); }
 
-    /* ══════════════════════════════════════════════════════════
-       BOTÓN PRINCIPAL — onclick navega a squama-landing.html
-       Cambiá la URL por la ruta real: "index.html", "/home", etc.
-    ══════════════════════════════════════════════════════════ */
     .btn-primary {
       background: linear-gradient(135deg, var(--gold-from), var(--gold-to));
       color: #1a0505;
     }
-    /* ══════════════════════════════════════════════════════════
-       FIN BOTÓN PRINCIPAL
-    ══════════════════════════════════════════════════════════ */
 
     .btn-secondary {
       background: var(--panel);
@@ -436,6 +430,7 @@ object-fit:contain;
   </style>
 </head>
 <body>
+<form id="form1" runat="server">
 <div class="page">
 
   <!-- FONDO -->
@@ -480,34 +475,47 @@ object-fit:contain;
         <div class="card" role="main">
 
           <p class="card-title">Bienvenido de vuelta</p>
-          <p class="card-desc">Ingresa tus credenciales para continuar tu aventura</p>
+
+          <%-- 
+            PÁRRAFO DINÁMICO: 
+            - runat="server" permite modificarlo desde el .cs
+            - La clase CSS se cambia desde code-behind según el resultado
+          --%>
+          <p id="pMensaje" runat="server" class="card-desc">
+            Ingresa tus credenciales para continuar tu aventura
+          </p>
+
           <div class="card-divider" aria-hidden="true"></div>
 
+          <%-- CAMPO USUARIO / EMAIL — runat="server" para leerlo en el .cs --%>
           <div class="field">
             <label for="username">Usuario o correo electrónico</label>
-            <input id="username" type="text"
+            <input id="username" runat="server" type="text"
                    placeholder="Tu nombre de usuario..."
                    autocomplete="username" />
           </div>
 
+          <%-- CAMPO CONTRASEÑA — runat="server" para leerlo en el .cs --%>
           <div class="field">
             <label for="password">Contraseña</label>
-            <input id="password" type="password"
+            <input id="password" runat="server" type="password"
                    placeholder="••••••••"
                    autocomplete="current-password" />
           </div>
 
           <a class="forgot" href="#">¿Olvidaste tu contraseña?</a>
 
-          <!-- ══════════════════════════════════════════════════
-               BOTÓN PRINCIPAL — navega a squama-landing.html
-               Cambiá la URL por la ruta real de tu proyecto
-          ══════════════════════════════════════════════════ -->
+          <%-- 
+            BOTÓN PRINCIPAL:
+            - runat="server" convierte el botón en control de servidor
+            - onserverclick dispara el método btnIngresar_Click en el .cs
+            - Se elimina el onclick de JavaScript
+          --%>
           <button class="btn btn-primary"
-                  onclick="window.location.href='squama-landing.html'">
+                  runat="server"
+                  onserverclick="btnIngresar_Click">
             Ingresar al Reino
           </button>
-          <!-- ══════════════════════ FIN BOTÓN PRINCIPAL ══════ -->
 
           <div class="or-row" aria-hidden="true">
             <span class="line"></span><span>o</span><span class="line"></span>
@@ -516,7 +524,7 @@ object-fit:contain;
           <p class="new-text">¿Eres nuevo en Squama?</p>
 
           <button class="btn btn-secondary"
-                  onclick="window.location.href='#register'">
+                  onclick="window.location.href='#register'; return false;">
             Crear una cuenta nueva
           </button>
 
@@ -536,5 +544,6 @@ object-fit:contain;
   </div><!-- .content -->
 
 </div><!-- .page -->
+</form>
 </body>
 </html>
