@@ -33,6 +33,8 @@ namespace PylinskiCuello_ProyectoWeb
             // Caso 1: usuario no existe
             if (usuario == null)
             {
+                SERVICIOS.SERVICIOS_Bitacora.RegistrarEvento(null, 2, Request.UserHostAddress);
+
                 pMensaje.InnerText = "La clave o el email no coinciden.";
                 return;
             }
@@ -40,6 +42,9 @@ namespace PylinskiCuello_ProyectoWeb
             // Caso 2: bloqueado
             if (usuario.IntentosFallidos >= 3)
             {
+                //LUEGO VER DE AGREGAR OTRO EVENTO 
+                SERVICIOS.SERVICIOS_Bitacora.RegistrarEvento(usuario.IDUsuario, 2, Request.UserHostAddress);
+
                 pMensaje.InnerText = "Usuario bloqueado por superar intentos fallidos.";
                 return;
             }
@@ -47,15 +52,22 @@ namespace PylinskiCuello_ProyectoWeb
             // Caso 3: clave incorrecta (IDRol == 0 y PasswordHash == null)
             if (usuario.IDRol == 0)
             {
+                SERVICIOS.SERVICIOS_Bitacora.RegistrarEvento(usuario.IDUsuario, 2, Request.UserHostAddress);
+
                 pMensaje.InnerText = "La clave o el email no coinciden.";
                 return;
             }
+
+             SERVICIOS.SERVICIOS_Bitacora.RegistrarEvento(usuario.IDUsuario ,1, Request.UserHostAddress);
 
             // Caso 4: login exitoso → redirigir según rol
             switch (usuario.IDRol)
             {
                 case 1:
+
                     Response.Redirect("HomeAdministrador.aspx");
+
+
                     break;
                 case 2:
                     Response.Redirect("HomeWebMaster.aspx");
