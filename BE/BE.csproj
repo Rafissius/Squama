@@ -42,7 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BE_Bitacora.cs" />
-    <Compile Include="BE_Usuario.cs" />
+	  <Compile Include="BE_EventoBitacoraVista.cs" />
+	  <Compile Include="BE_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

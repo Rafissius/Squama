@@ -10,33 +10,34 @@ namespace SERVICIOS
 {
     public static class SERVICIOS_Bitacora
     {
-        public static void RegistrarEvento(int? idUsuario, string nombreEvento, string descripcion, string ipOrigen = null)
+
+
+        // SERVICIOS.SERVICIOS_Bitacora.RegistrarEvento(int/null/usuario.idquetengo,int (ID del evento), Request.UserHostAddress (ip));
+
+
+
+        public static void RegistrarEvento(int? idUsuario, int idTipoEvento, string ipOrigen = null)
         {
-            if (string.IsNullOrWhiteSpace(nombreEvento))
-            {
-                throw new Exception("El nombre del evento no puede estar vacío.");
-            }
-
-            if (string.IsNullOrWhiteSpace(descripcion))
-            {
-                descripcion = "Sin descripción";
-            }
-
-
             DAL_Bitacora dalBitacora = new DAL_Bitacora();
-
-            int idTipoEvento = dalBitacora.ObtenerIdTipoEventoPorNombre(nombreEvento);
 
             BE_Bitacora bitacora = new BE_Bitacora
             {
                 IDUsuario = idUsuario,
                 IDTipoEventoBitacora = idTipoEvento,
                 FechaEvento = DateTime.Now,
-                Descripcion = descripcion,
+                Descripcion = dalBitacora.ObtenerDescripcionTipoEvento(idTipoEvento),
                 IPOrigen = ipOrigen
             };
 
             dalBitacora.Guardar(bitacora);
         }
+
+        public static List<BE_EventoBitacoraVista> ObtenerEventos()
+        {
+            return new DAL_Bitacora().ObtenerEventos();
+        }
+
+
+
     }
 }
