@@ -144,7 +144,7 @@
         <a href="HomeWebmaster.aspx">Inicio</a>
         <a href="EnConstruccionWebmaster.aspx">Usuarios</a>
         <a href="EnConstruccionWebmaster.aspx">Perfiles</a>
-        <a href="EnConstruccionWebmaster.aspx">Bit&aacute;cora</a>
+        <a href="BitacoraEventos.aspx">Bit&aacute;cora</a>
         <a href="EnConstruccionWebmaster.aspx">Backup/Restore</a>
         <a href="EnConstruccionWebmaster.aspx">Seguridad</a>
       </div>
@@ -162,7 +162,7 @@
         <a href="HomeWebmaster.aspx">Inicio</a>
         <a href="EnConstruccionWebmaster.aspx">Usuarios</a>
         <a href="EnConstruccionWebmaster.aspx">Perfiles</a>
-        <a href="EnConstruccionWebmaster.aspx">Bit&aacute;cora</a>
+        <a href="BitacoraEventos.aspx">Bit&aacute;cora</a>
         <a href="EnConstruccionWebmaster.aspx">Backup / Restore</a>
         <a href="EnConstruccionWebmaster.aspx">Seguridad</a>
       </div>

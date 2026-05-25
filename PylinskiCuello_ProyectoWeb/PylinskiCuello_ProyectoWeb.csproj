@@ -99,6 +99,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BitacoraEventos.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -190,6 +191,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BitacoraEventos.aspx.cs">
+      <DependentUpon>BitacoraEventos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BitacoraEventos.aspx.designer.cs">
+      <DependentUpon>BitacoraEventos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EnConstruccionAdministrador.aspx.cs">
       <DependentUpon>EnConstruccionAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
