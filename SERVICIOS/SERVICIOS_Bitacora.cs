@@ -12,7 +12,7 @@ namespace SERVICIOS
     {
 
 
-        // SERVICIOS.SERVICIOS_Bitacora.RegistrarEvento(int/null/usuario.idquetengo,int (ID del evento), Request.UserHostAddress (ip));
+    //    SERVICIOS.SERVICIOS_Bitacora.RegistrarEvento(int/null/usuario.idquetengo,int (ID del evento), Request.UserHostAddress (ip));
 
 
 
