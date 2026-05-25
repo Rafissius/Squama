@@ -183,7 +183,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1000px) { .main-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px) {
+    @media (max-width: 1050px) {
       .nav-links     { display: none; }
       .nav-hamburger { display: flex; }
       .main-grid     { grid-template-columns: 1fr; }
@@ -214,14 +214,14 @@
 
       <div class="nav-links">
         <a href="HomeAdministrador.aspx" class="active">Inicio</a>
-        <a href="ABMHub.aspx">Objetos</a>
-        <a href="Banners.aspx">Banners</a>
-        <a href="EventosAdmin.aspx">Eventos</a>
-        <a href="Estadisticas.aspx">Estad&iacute;sticas</a>
-        <a href="PerfilAdmin.aspx">Perfil</a>
+        <a href="EnConstruccionAdministrador.aspx">Objetos</a>
+        <a href="EnConstruccionAdministrador.aspx">Banners</a>
+        <a href="EnConstruccionAdministrador.aspx">Eventos</a>
+        <a href="EnConstruccionAdministrador.aspx">Estad&iacute;sticas</a>
+        <a href="EnConstruccionAdministrador.aspx">Perfil</a>
       </div>
 
-      <button class="nav-hamburger" onclick="toggleNav()" aria-label="Abrir menú">&#9776;</button>
+<button type="button" class="nav-hamburger" onclick="toggleNav()" aria-label="Abrir menú">&#9776;</button>
 
       <div class="nav-right">
         <div class="nav-avatar">A</div>
@@ -241,11 +241,11 @@
 
       <div class="nav-dropdown" id="navDropdown">
         <a href="HomeAdministrador.aspx" class="active">Inicio</a>
-        <a href="ABMHub.aspx">Objetos</a>
-        <a href="Banners.aspx">Banners</a>
-        <a href="EventosAdmin.aspx">Eventos</a>
-        <a href="Estadisticas.aspx">Estad&iacute;sticas</a>
-        <a href="PerfilAdmin.aspx">Perfil</a>
+        <a href="EnConstruccionAdministrador.aspx">Objetos</a>
+        <a href="EnConstruccionAdministrador.aspx">Banners</a>
+        <a href="EnConstruccionAdministrador.aspx">Eventos</a>
+        <a href="EnConstruccionAdministrador.aspx">Estad&iacute;sticas</a>
+        <a href="EnConstruccionAdministrador.aspx">Perfil</a>
       </div>
     </nav>
 
@@ -277,7 +277,7 @@
             <p class="card-title">Eventos Estad&iacute;sticos</p>
             <p class="card-desc">Crea y gestiona eventos que modifican el peso de estad&iacute;sticas en la f&oacute;rmula de combate.</p>
             <div class="card-status" style="background:rgba(242,158,56,.15);border:1px solid rgba(242,158,56,.45);color:var(--c-admin)">Evento activo: Semana de la Fuerza</div>
-            <button class="card-btn" style="background:rgba(242,158,56,.85);color:#1f1205" onclick="location.href='EventosAdmin.aspx'">Gestionar eventos</button>
+            <button type="button" class="card-btn" style="background:rgba(242,158,56,.85);color:#1f1205" onclick="location.href='EnConstruccionAdministrador.aspx'">Gestionar eventos</button>
           </div>
         </div>
 
@@ -287,7 +287,7 @@
             <p class="card-title">Estad&iacute;sticas del Juego</p>
             <p class="card-desc">Visualiza m&eacute;tricas: usuarios activos, combates, tiradas gacha y distribuciones de objetos.</p>
             <div class="card-status" style="background:rgba(89,153,242,.15);border:1px solid rgba(89,153,242,.45);color:var(--c-stats)">320 usuarios &mdash; 1.240 combates hoy</div>
-            <button class="card-btn" style="background:rgba(89,153,242,.85);color:#fff" onclick="location.href='Estadisticas.aspx'">Ver estad&iacute;sticas</button>
+            <button type="button" class="card-btn" style="background:rgba(89,153,242,.85);color:#fff" onclick="location.href='EnConstruccionAdministrador.aspx'">Ver estad&iacute;sticas</button>
           </div>
         </div>
 
@@ -297,7 +297,7 @@
             <p class="card-title">Gesti&oacute;n de Banners</p>
             <p class="card-desc">Configura los portales gacha activos, ajusta probabilidades por rareza y define la vigencia de cada banner.</p>
             <div class="card-status" style="background:rgba(71,217,107,.15);border:1px solid rgba(71,217,107,.45);color:var(--c-banners)">4 banners activos &mdash; 148 objetos en rotaci&oacute;n</div>
-            <button class="card-btn" style="background:rgba(71,217,107,.85);color:#0a2010" onclick="location.href='Banners.aspx'">Gestionar banners</button>
+            <button type="button" class="card-btn" style="background:rgba(71,217,107,.85);color:#0a2010" onclick="location.href='EnConstruccionAdministrador.aspx'">Gestionar banners</button>
           </div>
         </div>
 
@@ -307,7 +307,7 @@
             <p class="card-title">Mi Perfil Admin</p>
             <p class="card-desc">Accede a tu perfil de administrador. Revisa tu actividad y acciones recientes en el sistema.</p>
             <div class="card-status" style="background:rgba(217,173,38,.15);border:1px solid rgba(217,173,38,.45);color:var(--c-perfil)">&Uacute;ltimo acceso: hoy &mdash; Sesi&oacute;n activa</div>
-            <button class="card-btn" style="background:rgba(217,173,38,.85);color:#1f1205" onclick="location.href='PerfilAdmin.aspx'">Ver mi perfil</button>
+            <button type="button" class="card-btn" style="background:rgba(217,173,38,.85);color:#1f1205" onclick="location.href='EnConstruccionAdministrador.aspx'">Ver mi perfil</button>
           </div>
         </div>
 
@@ -318,10 +318,10 @@
     <div class="quick-section">
       <p class="quick-title">Acciones r&aacute;pidas &mdash; ABM de objetos</p>
       <div class="quick-grid">
-        <button class="quick-btn" onclick="location.href='ABMArmas.aspx'"><span class="qb-name">ABM Armas</span><span class="qb-sub">Crear / editar / eliminar</span></button>
-        <button class="quick-btn" onclick="location.href='ABMArmaduras.aspx'"><span class="qb-name">ABM Armaduras</span><span class="qb-sub">Gestionar armaduras</span></button>
-        <button class="quick-btn" onclick="location.href='ABMMascotas.aspx'"><span class="qb-name">ABM Mascotas</span><span class="qb-sub">Gestionar mascotas</span></button>
-        <button class="quick-btn" onclick="location.href='ABMHabilidades.aspx'"><span class="qb-name">ABM Habilidades</span><span class="qb-sub">Gestionar habilidades</span></button>
+        <button type="button" class="quick-btn" onclick="location.href='EnConstruccionAdministrador.aspx'"><span class="qb-name">ABM Armas</span><span class="qb-sub">Crear / editar / eliminar</span></button>
+        <button type="button" class="quick-btn" onclick="location.href='EnConstruccionAdministrador.aspx'"><span class="qb-name">ABM Armaduras</span><span class="qb-sub">Gestionar armaduras</span></button>
+        <button type="button" class="quick-btn" onclick="location.href='EnConstruccionAdministrador.aspx'"><span class="qb-name">ABM Mascotas</span><span class="qb-sub">Gestionar mascotas</span></button>
+        <button type="button" class="quick-btn" onclick="location.href='EnConstruccionAdministrador.aspx'"><span class="qb-name">ABM Habilidades</span><span class="qb-sub">Gestionar habilidades</span></button>
       </div>
     </div>
 

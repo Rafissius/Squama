@@ -116,6 +116,9 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="EnConstruccionAdministrador.aspx" />
+    <Content Include="EnConstruccionJugador.aspx" />
+    <Content Include="EnConstruccionWebmaster.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="HomeAdministrador.aspx" />
@@ -187,6 +190,27 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="EnConstruccionAdministrador.aspx.cs">
+      <DependentUpon>EnConstruccionAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnConstruccionAdministrador.aspx.designer.cs">
+      <DependentUpon>EnConstruccionAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EnConstruccionJugador.aspx.cs">
+      <DependentUpon>EnConstruccionJugador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnConstruccionJugador.aspx.designer.cs">
+      <DependentUpon>EnConstruccionJugador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EnConstruccionWebmaster.aspx.cs">
+      <DependentUpon>EnConstruccionWebmaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnConstruccionWebmaster.aspx.designer.cs">
+      <DependentUpon>EnConstruccionWebmaster.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

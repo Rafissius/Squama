@@ -172,7 +172,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 1100px) { .cards-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 700px)  { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px) {
+    @media (max-width: 1050px) {
       .nav-links     { display: none; }
       .nav-hamburger { display: flex; }
       .cards-grid    { grid-template-columns: 1fr; }
@@ -203,14 +203,14 @@
 
       <div class="nav-links">
         <a href="HomeWebmaster.aspx" class="active">Inicio</a>
-        <a href="GestionUsuarios.aspx">Usuarios</a>
-        <a href="PerfilesRoles.aspx">Perfiles</a>
-        <a href="Bitacora.aspx">Bit&aacute;cora</a>
-        <a href="BackupRestore.aspx">Backup/Restore</a>
-        <a href="Seguridad.aspx">Seguridad</a>
+        <a href="EnConstruccionWebmaster.aspx">Usuarios</a>
+        <a href="EnConstruccionWebmaster.aspx">Perfiles</a>
+        <a href="EnConstruccionWebmaster.aspx">Bit&aacute;cora</a>
+        <a href="EnConstruccionWebmaster.aspx">Backup/Restore</a>
+        <a href="EnConstruccionWebmaster.aspx">Seguridad</a>
       </div>
 
-      <button class="nav-hamburger" onclick="toggleNav()" aria-label="Abrir menú">&#9776;</button>
+<button type="button" class="nav-hamburger" onclick="toggleNav()" aria-label="Abrir menú">&#9776;</button>
 
       <div class="nav-right">
         <div class="nav-avatar">W</div>
@@ -229,11 +229,11 @@
 
       <div class="nav-dropdown" id="navDropdown">
         <a href="HomeWebmaster.aspx" class="active">Inicio</a>
-        <a href="GestionUsuarios.aspx">Usuarios</a>
-        <a href="PerfilesRoles.aspx">Perfiles</a>
-        <a href="Bitacora.aspx">Bit&aacute;cora</a>
-        <a href="BackupRestore.aspx">Backup / Restore</a>
-        <a href="Seguridad.aspx">Seguridad</a>
+        <a href="EnConstruccionWebmaster.aspx">Usuarios</a>
+        <a href="EnConstruccionWebmaster.aspx">Perfiles</a>
+        <a href="EnConstruccionWebmaster.aspx">Bit&aacute;cora</a>
+        <a href="EnConstruccionWebmaster.aspx">Backup / Restore</a>
+        <a href="EnConstruccionWebmaster.aspx">Seguridad</a>
       </div>
     </nav>
 
@@ -265,7 +265,7 @@
             <p class="card-title">Gesti&oacute;n de Usuarios</p>
             <p class="card-desc">ABM completo de usuarios. Crear, modificar, activar, desactivar, bloquear y asignar roles.</p>
             <div class="card-status" style="background:rgba(184,107,242,.15);border:1px solid rgba(184,107,242,.45);color:var(--c-usuarios)">320 usuarios &mdash; 3 bloqueados &mdash; 5 inactivos</div>
-            <button class="card-btn" style="background:rgba(184,107,242,.85);color:#1f1205" onclick="location.href='GestionUsuarios.aspx'">Gestionar usuarios</button>
+            <button type="button" class="card-btn" style="background:rgba(184,107,242,.85);color:#1f1205" onclick="location.href='EnConstruccionWebmaster.aspx'">Gestionar usuarios</button>
           </div>
         </div>
 
@@ -275,7 +275,7 @@
             <p class="card-title">Perfiles y Roles</p>
             <p class="card-desc">Gesti&oacute;n de perfiles, roles, familias y permisos. Asigna accesos granulares a cada usuario.</p>
             <div class="card-status" style="background:rgba(89,153,242,.15);border:1px solid rgba(89,153,242,.45);color:var(--c-roles)">3 roles &mdash; 8 perfiles &mdash; 24 permisos</div>
-            <button class="card-btn" style="background:rgba(89,153,242,.85);color:#fff" onclick="location.href='PerfilesRoles.aspx'">Gestionar perfiles</button>
+            <button type="button" class="card-btn" style="background:rgba(89,153,242,.85);color:#fff" onclick="location.href='EnConstruccionWebmaster.aspx'">Gestionar perfiles</button>
           </div>
         </div>
 
@@ -285,7 +285,7 @@
             <p class="card-title">Bit&aacute;cora de Eventos</p>
             <p class="card-desc">Registro de logins, errores, cambios cr&iacute;ticos, bloqueos y verificaciones de integridad.</p>
             <div class="card-status" style="background:rgba(242,158,56,.15);border:1px solid rgba(242,158,56,.45);color:var(--c-bitacora)">1.840 eventos &mdash; 3 alertas hoy</div>
-            <button class="card-btn" style="background:rgba(242,158,56,.85);color:#1f1205" onclick="location.href='Bitacora.aspx'">Ver bit&aacute;cora</button>
+            <button type="button" class="card-btn" style="background:rgba(242,158,56,.85);color:#1f1205" onclick="location.href='EnConstruccionWebmaster.aspx'">Ver bit&aacute;cora</button>
           </div>
         </div>
 
@@ -295,7 +295,7 @@
             <p class="card-title">Backup / Restore</p>
             <p class="card-desc">Genera copias de seguridad de la base de datos y restaura desde versiones anteriores.</p>
             <div class="card-status" style="background:rgba(71,217,107,.15);border:1px solid rgba(71,217,107,.45);color:var(--c-backup)">&Uacute;ltimo backup: hoy 03:00 &mdash; OK</div>
-            <button class="card-btn" style="background:rgba(71,217,107,.85);color:#0a2010" onclick="location.href='BackupRestore.aspx'">Gestionar backups</button>
+            <button type="button" class="card-btn" style="background:rgba(71,217,107,.85);color:#0a2010" onclick="location.href='EnConstruccionWebmaster.aspx'">Gestionar backups</button>
           </div>
         </div>
 
@@ -305,7 +305,7 @@
             <p class="card-title">D&iacute;gito Verificador</p>
             <p class="card-desc">Controla la integridad de registros mediante DVH y DVV. Detecta modificaciones no autorizadas.</p>
             <div class="card-status" style="background:rgba(242,82,46,.15);border:1px solid rgba(242,82,46,.45);color:var(--c-dv)">DVV: OK &mdash; DVH: 2 inconsistencias</div>
-            <button class="card-btn" style="background:rgba(242,82,46,.85);color:#fff" onclick="location.href='DigitoVerificador.aspx'">Verificar integridad</button>
+            <button type="button" class="card-btn" style="background:rgba(242,82,46,.85);color:#fff" onclick="location.href='EnConstruccionWebmaster.aspx'">Verificar integridad</button>
           </div>
         </div>
 

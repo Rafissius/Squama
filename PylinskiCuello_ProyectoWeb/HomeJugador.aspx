@@ -199,7 +199,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px)  { .cards-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 600px)  {
+    @media (max-width: 1050px)  {
       .nav-links    { display: none; }
       .nav-hamburger { display: flex; }
       .cards-grid   { grid-template-columns: repeat(2, 1fr); }
@@ -231,15 +231,15 @@
       <!-- Nav horizontal (desktop) -->
       <div class="nav-links">
         <a href="HomeJugador.aspx" class="active">Inicio</a>
-        <a href="Perfil.aspx">Perfil</a>
-        <a href="Arena.aspx">Arena</a>
-        <a href="Gacha.aspx">Gacha</a>
-        <a href="Clan.aspx">Clan</a>
-        <a href="Tienda.aspx">Tienda</a>
+        <a href="EnConstruccionJugador.aspx">Perfil</a>
+        <a href="EnConstruccionJugador.aspx">Arena</a>
+        <a href="EnConstruccionJugador.aspx">Gacha</a>
+        <a href="EnConstruccionJugador.aspx">Clan</a>
+        <a href="EnConstruccionJugador.aspx">Tienda</a>
       </div>
 
       <!-- Hamburger (mobile) -->
-      <button class="nav-hamburger" onclick="toggleNav()" aria-label="Abrir menú">&#9776;</button>
+<button type="button" class="nav-hamburger" onclick="toggleNav()" aria-label="Abrir menú">&#9776;</button>
 
       <div class="nav-right">
         <div class="nav-avatar">G</div>
@@ -260,11 +260,11 @@
       <!-- Dropdown mobile -->
       <div class="nav-dropdown" id="navDropdown">
         <a href="HomeJugador.aspx" class="active">Inicio</a>
-        <a href="Perfil.aspx">Perfil</a>
-        <a href="Arena.aspx">Arena</a>
-        <a href="Gacha.aspx">Gacha</a>
-        <a href="Clan.aspx">Clan</a>
-        <a href="Tienda.aspx">Tienda</a>
+        <a href="EnConstruccionJugador.aspx">Perfil</a>
+        <a href="EnConstruccionJugador.aspx">Arena</a>
+        <a href="EnConstruccionJugador.aspx">Gacha</a>
+        <a href="EnConstruccionJugador.aspx">Clan</a>
+        <a href="EnConstruccionJugador.aspx">Tienda</a>
       </div>
     </nav>
 
@@ -296,7 +296,7 @@
             <p class="card-title">Mi Perfil</p>
             <p class="card-desc">Consulta tus estad&iacute;sticas, historial de combates, logros y progreso de nivel.</p>
             <div class="card-status" style="background:rgba(217,173,38,.15);border:1px solid rgba(217,173,38,.45);color:var(--c-perfil)">Nivel 24 &mdash; Rango Oro &mdash; 287 combates</div>
-            <button class="card-btn" style="background:rgba(217,173,38,.85);color:#1f1205" onclick="location.href='Perfil.aspx'">Ver mi perfil</button>
+            <button type="button" class="card-btn" style="background:rgba(217,173,38,.85);color:#1f1205" onclick="location.href='EnConstruccionJugador.aspx'">Ver mi perfil</button>
           </div>
         </div>
 
@@ -306,7 +306,7 @@
             <p class="card-title">Arena</p>
             <p class="card-desc">Elige entre 6 rivales de tu nivel y combate. El resultado se calcula por f&oacute;rmula con aleatoriedad controlada.</p>
             <div class="card-status" style="background:rgba(242,82,46,.15);border:1px solid rgba(242,82,46,.45);color:var(--c-arena)">3 intentos disponibles hoy</div>
-            <button class="card-btn" style="background:rgba(242,82,46,.85);color:#fff" onclick="location.href='Arena.aspx'">Entrar a la arena</button>
+            <button type="button" class="card-btn" style="background:rgba(242,82,46,.85);color:#fff" onclick="location.href='EnConstruccionJugador.aspx'">Entrar a la arena</button>
           </div>
         </div>
 
@@ -316,7 +316,7 @@
             <p class="card-title">Gacha</p>
             <p class="card-desc">Abre portales y obtiene armas, armaduras, mascotas y habilidades para equipar a tu personaje.</p>
             <div class="card-status" style="background:rgba(184,107,242,.15);border:1px solid rgba(184,107,242,.45);color:var(--c-gacha)">3.420 monedas disponibles</div>
-            <button class="card-btn" style="background:rgba(184,107,242,.85);color:#fff" onclick="location.href='Gacha.aspx'">Ir al Gacha</button>
+            <button type="button" class="card-btn" style="background:rgba(184,107,242,.85);color:#fff" onclick="location.href='EnConstruccionJugador.aspx'">Ir al Gacha</button>
           </div>
         </div>
 
@@ -326,7 +326,7 @@
             <p class="card-title">Clan</p>
             <p class="card-desc">Une fuerzas con tu clan. Ataca al jefe diario y obtiene bonificaciones para todos los miembros.</p>
             <div class="card-status" style="background:rgba(71,217,107,.15);border:1px solid rgba(71,217,107,.45);color:var(--c-clan)">Los Dragon &mdash; Nivel 3 &mdash; 42 miembros</div>
-            <button class="card-btn" style="background:rgba(71,217,107,.85);color:#0a2010" onclick="location.href='Clan.aspx'">Ver mi clan</button>
+            <button type="button" class="card-btn" style="background:rgba(71,217,107,.85);color:#0a2010" onclick="location.href='EnConstruccionJugador.aspx'">Ver mi clan</button>
           </div>
         </div>
 
@@ -336,7 +336,7 @@
             <p class="card-title">Tienda</p>
             <p class="card-desc">Compra paquetes de monedas, tiradas adicionales y packs especiales para potenciar tu progresi&oacute;n.</p>
             <div class="card-status" style="background:rgba(89,153,242,.15);border:1px solid rgba(89,153,242,.45);color:var(--c-tienda)">Packs disponibles &mdash; Eventos activos</div>
-            <button class="card-btn" style="background:rgba(89,153,242,.85);color:#fff" onclick="location.href='Tienda.aspx'">Ir a la tienda</button>
+            <button type="button" class="card-btn" style="background:rgba(89,153,242,.85);color:#fff" onclick="location.href='EnConstruccionJugador.aspx'">Ir a la tienda</button>
           </div>
         </div>
 
