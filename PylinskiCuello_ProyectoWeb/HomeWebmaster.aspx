@@ -205,7 +205,7 @@
         <a href="HomeWebmaster.aspx" class="active">Inicio</a>
         <a href="EnConstruccionWebmaster.aspx">Usuarios</a>
         <a href="EnConstruccionWebmaster.aspx">Perfiles</a>
-        <a href="EnConstruccionWebmaster.aspx">Bit&aacute;cora</a>
+        <a href="BitacoraEventos.aspx">Bit&aacute;cora</a>
         <a href="EnConstruccionWebmaster.aspx">Backup/Restore</a>
         <a href="EnConstruccionWebmaster.aspx">Seguridad</a>
       </div>
@@ -231,7 +231,7 @@
         <a href="HomeWebmaster.aspx" class="active">Inicio</a>
         <a href="EnConstruccionWebmaster.aspx">Usuarios</a>
         <a href="EnConstruccionWebmaster.aspx">Perfiles</a>
-        <a href="EnConstruccionWebmaster.aspx">Bit&aacute;cora</a>
+        <a href="BitacoraEventos.aspx">Bit&aacute;cora</a>
         <a href="EnConstruccionWebmaster.aspx">Backup / Restore</a>
         <a href="EnConstruccionWebmaster.aspx">Seguridad</a>
       </div>
@@ -285,7 +285,7 @@
             <p class="card-title">Bit&aacute;cora de Eventos</p>
             <p class="card-desc">Registro de logins, errores, cambios cr&iacute;ticos, bloqueos y verificaciones de integridad.</p>
             <div class="card-status" style="background:rgba(242,158,56,.15);border:1px solid rgba(242,158,56,.45);color:var(--c-bitacora)">1.840 eventos &mdash; 3 alertas hoy</div>
-            <button type="button" class="card-btn" style="background:rgba(242,158,56,.85);color:#1f1205" onclick="location.href='EnConstruccionWebmaster.aspx'">Ver bit&aacute;cora</button>
+            <button type="button" class="card-btn" style="background:rgba(242,158,56,.85);color:#1f1205" onclick="location.href='BitacoraEventos.aspx'">Ver bit&aacute;cora</button>
           </div>
         </div>
 
