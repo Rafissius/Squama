@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BE;
+using SERVICIOS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,16 +27,10 @@ namespace PylinskiCuello_ProyectoWeb
 
         private void CargarEventos()
         {
-            // TODO: conectar con DAL y obtener datos reales filtrados.
-            // La lista que se pase a DataSource debe ser una List<EventoBitacora>
-            // o un DataTable con las columnas:
-            //   IDEvento, FechaHora (DateTime), NombreUsuario, TipoEvento,
-            //   Descripcion, EntidadAfectada, Criticidad, IPOrigen,
-            //   ModuloRelacionado, IDRegistroAfectado
 
-            List<object> eventos = ObtenerEventosFiltrados();
-
+            List<BE_EventoBitacoraVista> eventos = ObtenerEventosFiltrados();
             bool hayDatos = eventos != null && eventos.Count > 0;
+
             rptEventos.Visible = hayDatos;
             pnlEmpty.Visible = !hayDatos;
 
@@ -43,8 +39,11 @@ namespace PylinskiCuello_ProyectoWeb
                 rptEventos.DataSource = eventos;
                 rptEventos.DataBind();
             }
+            CargarRecientes(eventos);
 
-            // Stats — TODO: obtener desde DAL
+    
+
+            // Stats — TODO: obtener desde DAL DESPUES LO ARREGLAMOS
             // lblEventosHoy.Text    = dal.GetEventosHoy().ToString();
             // lblAlertas.Text       = dal.GetAlertas().ToString();
             // lblFallidos.Text      = dal.GetFallidos().ToString();
@@ -52,10 +51,9 @@ namespace PylinskiCuello_ProyectoWeb
             // lblUltimoEvento.Text  = dal.GetTiempoUltimoEvento();
             // lblPaginacionInfo.Text = $"{eventos.Count} eventos — Mostrando {Math.Min(ROWS_PER_PAGE, eventos.Count)} — Pág 1/{Math.Ceiling((double)eventos.Count/ROWS_PER_PAGE)}";
 
-            CargarRecientes();
         }
 
-        private void CargarRecientes()
+        private void CargarRecientes(List<BE_EventoBitacoraVista> eventos)
         {
             // TODO: obtener los últimos N eventos relevantes desde DAL
             // Debe incluir un campo calculado "TiempoRelativo" (ej. "hace 3 min")
@@ -75,14 +73,18 @@ namespace PylinskiCuello_ProyectoWeb
             return "blue";
         }
 
-        private List<object> ObtenerEventosFiltrados()
+        private List<BE_EventoBitacoraVista> ObtenerEventosFiltrados()
         {
-            // TODO: reemplazar con llamada real a la DAL con los filtros de búsqueda
-            return new List<object>();
+            return SERVICIOS.SERVICIOS_Bitacora.ObtenerEventos();
         }
 
         protected void BtnBuscar_Click(object sender, EventArgs e)
         {
+
+
+            SERVICIOS.SERVICIOS_Bitacora.RegistrarEvento(null,2, Request.UserHostAddress);
+
+
             CargarEventos();
 
         }

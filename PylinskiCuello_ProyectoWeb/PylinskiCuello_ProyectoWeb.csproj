@@ -294,6 +294,24 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{d9b25d64-ad66-4f47-9640-380306bf426e}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{2a3bd30b-bfd6-483a-81d3-cb87ab89c971}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LOGICA\LOGICA.csproj">
+      <Project>{e5efe9fb-0ffa-4118-89c9-a1274407500e}</Project>
+      <Name>LOGICA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SERVICIOS\SERVICIOS.csproj">
+      <Project>{e25e2fa7-c097-40e6-ac84-d61a531ac726}</Project>
+      <Name>SERVICIOS</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

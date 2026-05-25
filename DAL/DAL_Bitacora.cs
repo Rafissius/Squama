@@ -75,5 +75,71 @@ namespace DAL
 
             return Convert.ToInt32(resultado);
         }
+
+
+        public string ObtenerDescripcionTipoEvento(int idTipoEvento)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"
+        SELECT Descripcion 
+        FROM TipoEventoBitacora 
+        WHERE IDTipoEventoBitacora = @ID AND Estado = 1";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@ID", SqlDbType.Int).Value = idTipoEvento;
+
+            object resultado = dalGeneral.EjecutarScalar(cmd);
+            return resultado == null || resultado == DBNull.Value
+                ? "Sin descripción"
+                : resultado.ToString();
+        }
+
+
+
+        public List<BE_EventoBitacoraVista> ObtenerEventos()
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"
+        SELECT 
+            b.IDBitacora        AS IDEvento,
+            b.FechaEvento       AS FechaHora,
+            ISNULL(u.NombreUsuario, 'Sistema') AS NombreUsuario,
+            t.Nombre            AS TipoEvento,
+            b.Descripcion,
+            t.Criticidad,
+            t.Modulo            AS ModuloRelacionado,
+            b.IPOrigen
+        FROM Bitacora b
+        INNER JOIN TipoEventoBitacora t ON b.IDTipoEventoBitacora = t.IDTipoEventoBitacora
+        LEFT  JOIN Usuario           u ON b.IDUsuario = u.IDUsuario
+        ORDER BY b.FechaEvento DESC";
+            cmd.CommandType = CommandType.Text;
+
+            DataTable dt = dalGeneral.EjecutarDataTable(cmd);
+            List<BE_EventoBitacoraVista> lista = new List<BE_EventoBitacoraVista>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                lista.Add(new BE_EventoBitacoraVista
+                {
+                    IDEvento = Convert.ToInt32(row["IDEvento"]),
+                    FechaHora = Convert.ToDateTime(row["FechaHora"]),
+                    NombreUsuario = row["NombreUsuario"].ToString(),
+                    TipoEvento = row["TipoEvento"].ToString(),
+                    Descripcion = row["Descripcion"].ToString(),
+                    Criticidad = row["Criticidad"].ToString(),
+                    ModuloRelacionado = row["ModuloRelacionado"].ToString(),
+                    IPOrigen = row["IPOrigen"] == DBNull.Value ? "—" : row["IPOrigen"].ToString()
+                });
+            }
+            return lista;
+        }
+
+
+
+
+
+
+
+
     }
 }

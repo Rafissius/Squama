@@ -142,13 +142,13 @@
     .table-container { background: rgba(15,8,3,.90); border: 1px solid rgba(217,173,38,.18);
       border-radius: 10px; margin-top: 12px; overflow: hidden; }
     .table-header-row { display: grid;
-      grid-template-columns: 60px 120px 110px 90px 1fr 90px 100px 110px 70px;
+      grid-template-columns: 60px 120px 110px 90px 1fr 100px 110px 70px;
       padding: 0 16px; height: 38px; align-items: center;
       background: rgba(89,153,242,.1); border-top: 3px solid #5999f2; }
     .table-header-cell { font-weight: 700; font-size: 10px; color: #5999f2; }
     .table-body { }
     .table-row { display: grid;
-      grid-template-columns: 60px 120px 110px 90px 1fr 90px 100px 110px 70px;
+      grid-template-columns: 60px 120px 110px 90px 1fr 100px 110px 70px;
       padding: 0 16px; min-height: 38px; align-items: center; border-top: 1px solid rgba(217,173,38,.1);
       transition: background .15s; }
     .table-row:nth-child(odd) { background: rgba(89,153,242,.03); }
@@ -415,17 +415,13 @@
 
     <!-- FILTROS -->
     <div class="filters-bar">
-      <input type="text" class="filter-search" placeholder="Buscar descripción, usuario, entidad o ID..."
+      <input type="text" class="filter-search" placeholder="Buscar descripción, usuario o ID..."
              id="txtBuscar" runat="server" />
       <input type="date" class="filter-date" id="txtFechaDesde" runat="server" />
         <input type="date" class="filter-date" id="txtFechaHasta" runat="server" />
 
       <asp:DropDownList ID="ddlUsuario" runat="server" CssClass="filter-select" >
               <asp:ListItem Value="" Text="Usuario" />
-            </asp:DropDownList>
-
-       <asp:DropDownList ID="ddlTipo" runat="server" CssClass="filter-select" >
-               <asp:ListItem Value="" Text="Usuario" />
             </asp:DropDownList>
 
         <asp:DropDownList ID="ddlCriticidad" runat="server" CssClass="filter-select" >
@@ -449,46 +445,55 @@
         <div class="table-header-cell">Usuario</div>
         <div class="table-header-cell">Tipo</div>
         <div class="table-header-cell">Descripción</div>
-        <div class="table-header-cell">Entidad</div>
         <div class="table-header-cell">Criticidad</div>
         <div class="table-header-cell">IP Origen</div>
         <div class="table-header-cell">Acciones</div>
       </div>
       <div class="table-body" id="tableBody">
         <asp:Repeater ID="rptEventos" runat="server">
-          <ItemTemplate>
-            <div class="table-row"
-                 data-id="<%# Eval("IDEvento") %>"
-                 data-fecha="<%# Eval("FechaHora", "{0:dd/MM/yyyy HH:mm:ss}") %>"
-                 data-usuario="<%# Eval("NombreUsuario") %>"
-                 data-tipo="<%# Eval("TipoEvento") %>"
-                 data-descripcion="<%# Eval("Descripcion") %>"
-                 data-entidad="<%# Eval("EntidadAfectada") %>"
-                 data-criticidad="<%# Eval("Criticidad") %>"
-                 data-ip="<%# Eval("IPOrigen") %>"
-                 data-modulo="<%# Eval("ModuloRelacionado") %>"
-                 data-id-registro="<%# Eval("IDRegistroAfectado") %>">
-              <div class="table-cell id"><%# Eval("IDEvento") %></div>
-              <div class="table-cell"><%# Eval("FechaHora", "{0:dd/MM HH:mm}") %></div>
-              <div class="table-cell usuario"><%# Eval("NombreUsuario") %></div>
-              <div class="table-cell">
-                <span class="tipo-badge tipo-<%# Eval("TipoEvento").ToString().ToLower() %>">
-                  <%# Eval("TipoEvento") %>
-                </span>
-              </div>
-              <div class="table-cell descripcion"><%# Eval("Descripcion") %></div>
-              <div class="table-cell entidad"><%# Eval("EntidadAfectada") %></div>
-              <div class="table-cell">
-                <span class="crit-badge crit-<%# Eval("Criticidad").ToString().ToLower() %>">
-                  <%# Eval("Criticidad") %>
-                </span>
-              </div>
-              <div class="table-cell ip"><%# Eval("IPOrigen") %></div>
-              <div class="table-cell">
-                <button class="btn-ver" onclick="abrirDetalle(this.closest('.table-row'))">Ver</button>
-              </div>
-            </div>
-          </ItemTemplate>
+         
+
+            <ItemTemplate>
+  <div class="table-row"
+       data-id="<%# Eval("IDEvento") %>"
+       data-fecha="<%# Eval("FechaHora", "{0:dd/MM/yyyy HH:mm:ss}") %>"
+       data-usuario="<%# Eval("NombreUsuario") %>"
+       data-tipo="<%# Eval("TipoEvento") %>"
+       data-descripcion="<%# Eval("Descripcion") %>"
+       data-criticidad="<%# Eval("Criticidad") %>"
+       data-ip="<%# Eval("IPOrigen") %>"
+       data-modulo="<%# Eval("ModuloRelacionado") %>">
+    <div class="table-cell id"><%# Eval("IDEvento") %></div>
+    <div class="table-cell"><%# Eval("FechaHora", "{0:dd/MM HH:mm}") %></div>
+    <div class="table-cell usuario"><%# Eval("NombreUsuario") %></div>
+    <div class="table-cell">
+      <span class="tipo-badge tipo-<%# Eval("TipoEvento").ToString().ToLower() %>">
+        <%# Eval("TipoEvento") %>
+      </span>
+    </div>
+    <div class="table-cell descripcion"><%# Eval("Descripcion") %></div>
+    <div class="table-cell">
+      <span class="crit-badge crit-<%# Eval("Criticidad").ToString().ToLower() %>">
+        <%# Eval("Criticidad") %>
+      </span>
+    </div>
+    <div class="table-cell ip"><%# Eval("IPOrigen") %></div>
+    <div class="table-cell">
+      <button type="button" class="btn-ver"
+              onclick="abrirDetalle(this.closest('.table-row'))">Ver</button>
+    </div>
+  </div>
+</ItemTemplate>
+
+
+
+
+
+
+
+
+
+
         </asp:Repeater>
         <asp:Panel ID="pnlEmpty" runat="server" CssClass="table-empty">
           No hay eventos registrados para el período seleccionado.
@@ -555,10 +560,6 @@
       <div class="modal-field">
         <div class="modal-field-label">Tipo de evento</div>
         <div class="modal-field-value" id="mTipo"></div>
-      </div>
-      <div class="modal-field">
-        <div class="modal-field-label">Entidad afectada</div>
-        <div class="modal-field-value" id="mEntidad"></div>
       </div>
       <div class="modal-field">
         <div class="modal-field-label">ID Registro afectado</div>
@@ -683,7 +684,6 @@
     document.getElementById('mFecha').textContent       = d.fecha || '—';
     document.getElementById('mUsuario').textContent     = d.usuario || '—';
     document.getElementById('mTipo').textContent        = d.tipo || '—';
-    document.getElementById('mEntidad').textContent     = d.entidad || '—';
     document.getElementById('mIdRegistro').textContent  = d.idRegistro || '—';
     document.getElementById('mIp').textContent          = d.ip || '—';
     document.getElementById('mModulo').textContent      = d.modulo || '—';
