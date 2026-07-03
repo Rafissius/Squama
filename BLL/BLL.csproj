@@ -53,6 +53,13 @@
       <Project>{f531957c-bb38-4209-b6d9-1c8a78101163}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <!-- Se mantiene intencionalmente aunque BLL_Usuario no invoque nada de SERVICIOS hoy
+         (la verificación de integridad se sacó del login): es probable que se necesite
+         a futuro y re-agregarla después es más costoso que dejarla. -->
+    <ProjectReference Include="..\SERVICIOS\SERVICIOS.csproj">
+      <Project>{e25e2fa7-c097-40e6-ac84-d61a531ac726}</Project>
+      <Name>SERVICIOS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

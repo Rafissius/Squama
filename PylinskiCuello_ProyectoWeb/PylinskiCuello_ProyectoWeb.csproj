@@ -127,6 +127,8 @@
     <Content Include="HomeWebmaster.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LoginIniciarSesion.aspx" />
+    <Content Include="SistemaBloqueado.aspx" />
+    <Content Include="Webmaster\ResolverIntegridad.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -191,6 +193,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BloqueoIntegridadModule.cs" />
     <Compile Include="BitacoraEventos.aspx.cs">
       <DependentUpon>BitacoraEventos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -258,6 +261,13 @@
       <DependentUpon>LoginIniciarSesion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SistemaBloqueado.aspx.cs">
+      <DependentUpon>SistemaBloqueado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SistemaBloqueado.aspx.designer.cs">
+      <DependentUpon>SistemaBloqueado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -271,6 +281,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Webmaster\ResolverIntegridad.aspx.cs">
+      <DependentUpon>ResolverIntegridad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webmaster\ResolverIntegridad.aspx.designer.cs">
+      <DependentUpon>ResolverIntegridad.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

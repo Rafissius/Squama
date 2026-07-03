@@ -30,6 +30,12 @@ namespace SERVICIOS
             };
 
             dalBitacora.Guardar(bitacora);
+
+            // Toda alta en una entidad registrada en SERVICIOS_DigitoVerificador._entidades
+            // debe actualizar su propio DVH (fila nueva) y recalcular el DVV (el agregado por
+            // columna cambia al sumar una fila) — ver Reglas.md, "Regla general".
+            SERVICIOS_DigitoVerificador.CalcularYGuardarDVH(bitacora);
+            SERVICIOS_DigitoVerificador.RecalcularDVV<BE_Bitacora>();
         }
 
         public static List<BE_EventoBitacoraVista> ObtenerEventos()

@@ -16,7 +16,8 @@ namespace PylinskiCuello_ProyectoWeb
 
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
-
+            Session.Clear();
+            Response.Redirect("LoginIniciarSesion.aspx");
         }
 
 

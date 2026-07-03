@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Elementos de la solución/">
+    <File Path="Contexto.md" />
+  </Folder>
   <Project Path="BE/BE.csproj" Id="d9b25d64-ad66-4f47-9640-380306bf426e" />
   <Project Path="BLL/BLL.csproj" Id="2a3bd30b-bfd6-483a-81d3-cb87ab89c971" />
   <Project Path="DAL/DAL.csproj" Id="f531957c-bb38-4209-b6d9-1c8a78101163" />

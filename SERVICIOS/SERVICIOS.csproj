@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EstadoSistema.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SERVICIOS_Bitacora.cs" />
+    <Compile Include="SERVICIOS_DigitoVerificador.cs" />
+    <Compile Include="SERVICIOS_Restore.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">

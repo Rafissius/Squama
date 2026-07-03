@@ -42,6 +42,10 @@ namespace BLL
 
             // Login exitoso: obtener rol
             usuario.IDRol = dal.ObtenerRolPorUsuario(usuario.IDUsuario);
+            // La verificación de integridad NO vive acá: la dispara Application_Start
+            // (al arrancar) y el timer periódico (SERVICIOS_DigitoVerificador vía Global.asax).
+            // El login solo autentica; BloqueoIntegridadModule es quien reparte por rol
+            // en cada request si EstadoSistema.Bloqueado ya está en true.
             usuario.PasswordHash = null; // no exponer el hash
             return usuario;
         }

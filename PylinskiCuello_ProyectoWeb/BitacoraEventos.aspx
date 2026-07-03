@@ -101,7 +101,7 @@
         <span class="stat-badge">activo</span>
       </div>
       <div class="stat-card green">
-        <span class="stat-number"><asp:Label ID="lblUltimoEvento" runat="server" Text="—" /></span>
+        <span class="stat-number"><asp:Label ID="lblUltimoEvento" runat="server" Text="N/D" /></span>
         <span class="stat-label">Último evento</span>
         <span class="stat-badge">activo</span>
       </div>
@@ -382,21 +382,21 @@
     const crit = (d.criticidad || 'INFO').toUpperCase();
     const tipo = (d.tipo || '').toUpperCase();
 
-    document.getElementById('mId').textContent         = d.id || '—';
-    document.getElementById('mFecha').textContent       = d.fecha || '—';
-    document.getElementById('mUsuario').textContent     = d.usuario || '—';
-    document.getElementById('mTipo').textContent        = d.tipo || '—';
-    document.getElementById('mIdRegistro').textContent  = d.idRegistro || '—';
-    document.getElementById('mIp').textContent          = d.ip || '—';
-    document.getElementById('mModulo').textContent      = d.modulo || '—';
-    document.getElementById('mDescripcion').textContent = d.descripcion || '—';
+    document.getElementById('mId').textContent         = d.id || 'N/D';
+    document.getElementById('mFecha').textContent       = d.fecha || 'N/D';
+    document.getElementById('mUsuario').textContent     = d.usuario || 'N/D';
+    document.getElementById('mTipo').textContent        = d.tipo || 'N/D';
+    document.getElementById('mIdRegistro').textContent  = d.idRegistro || 'N/D';
+    document.getElementById('mIp').textContent          = d.ip || 'N/D';
+    document.getElementById('mModulo').textContent      = d.modulo || 'N/D';
+    document.getElementById('mDescripcion').textContent = d.descripcion || 'N/D';
 
     const critData = critColors[crit] || { badge: 'crit-info', text: 'info-val' };
     const mCrit = document.getElementById('mCriticidad');
     mCrit.textContent = crit;
     mCrit.className = 'modal-field-value ' + critData.text;
 
-    document.getElementById('modalTitle').textContent = 'Detalle de evento — ' + (d.id || '');
+    document.getElementById('modalTitle').textContent = 'Detalle de evento - ' + (d.id || '');
 
     const badge = document.getElementById('modalCritBadge');
     badge.textContent = crit;

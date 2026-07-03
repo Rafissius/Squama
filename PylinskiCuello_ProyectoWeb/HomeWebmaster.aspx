@@ -153,7 +153,7 @@
             <p class="card-title">D&iacute;gito Verificador</p>
             <p class="card-desc">Controla la integridad de registros mediante DVH y DVV. Detecta modificaciones no autorizadas.</p>
             <div class="card-status" style="background:rgba(242,82,46,.15);border:1px solid rgba(242,82,46,.45);color:var(--c-dv)">DVV: OK &mdash; DVH: 2 inconsistencias</div>
-            <button type="button" class="card-btn" style="background:rgba(242,82,46,.85);color:#fff" onclick="location.href='EnConstruccionWebmaster.aspx'">Verificar integridad</button>
+            <button type="button" class="card-btn" style="background:rgba(242,82,46,.85);color:#fff" onclick="location.href='Webmaster/ResolverIntegridad.aspx'">Verificar integridad</button>
           </div>
         </div>
 

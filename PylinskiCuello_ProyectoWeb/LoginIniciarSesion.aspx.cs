@@ -60,17 +60,19 @@ namespace PylinskiCuello_ProyectoWeb
 
              SERVICIOS.SERVICIOS_Bitacora.RegistrarEvento(usuario.IDUsuario ,1, Request.UserHostAddress);
 
+            Session["Usuario"] = usuario;
+
             // Caso 4: login exitoso → redirigir según rol
             switch (usuario.IDRol)
             {
                 case 1:
 
-                    Response.Redirect("HomeAdministrador.aspx");
+                    Response.Redirect("HomeWebMaster.aspx");
 
 
                     break;
                 case 2:
-                    Response.Redirect("HomeWebMaster.aspx");
+                    Response.Redirect("HomeAdministrador.aspx");
                     break;
                 case 3:
                     Response.Redirect("HomeJugador.aspx");

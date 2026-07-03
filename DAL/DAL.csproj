@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL_Backup.cs" />
     <Compile Include="DAL_Bitacora.cs" />
+    <Compile Include="DAL_DigitoVerificador.cs" />
     <Compile Include="DAL_General.cs" />
     <Compile Include="DAL_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

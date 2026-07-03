@@ -61,7 +61,35 @@ namespace DAL
             }
         }
 
+        public void EjecutarEnTransaccion(List<SqlCommand> comandos)
+        {
+            using (SqlConnection conexion = CrearConexion())
+            {
+                conexion.Open();
+                SqlTransaction transaccion = conexion.BeginTransaction();
 
+                try
+                {
+                    foreach (SqlCommand cmd in comandos)
+                    {
+                        cmd.Connection = conexion;
+                        cmd.Transaction = transaccion;
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    transaccion.Commit();
+                }
+                catch
+                {
+                    transaccion.Rollback();
+                    throw;
+                }
+                finally
+                {
+                    transaccion.Dispose();
+                }
+            }
+        }
 
     }
 }

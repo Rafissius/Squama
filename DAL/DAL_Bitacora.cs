@@ -33,7 +33,8 @@ namespace DAL
                     @FechaEvento,
                     @Descripcion,
                     @IPOrigen
-                )";
+                );
+                SELECT SCOPE_IDENTITY();";
 
             cmd.CommandType = CommandType.Text;
 
@@ -49,7 +50,8 @@ namespace DAL
                 ? (object)DBNull.Value
                 : evento.IPOrigen;
 
-            dalGeneral.EjecutarNonQuery(cmd);
+            object idGenerado = dalGeneral.EjecutarScalar(cmd);
+            evento.IDBitacora = Convert.ToInt32(idGenerado);
         }
 
         public int ObtenerIdTipoEventoPorNombre(string nombreEvento)

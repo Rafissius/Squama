@@ -41,9 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BE_Backup.cs" />
     <Compile Include="BE_Bitacora.cs" />
 	  <Compile Include="BE_EventoBitacoraVista.cs" />
+    <Compile Include="BE_InconsistenciaIntegridad.cs" />
 	  <Compile Include="BE_Usuario.cs" />
+    <Compile Include="ExcluirDeDVAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
