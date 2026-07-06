@@ -1,0 +1,12 @@
+﻿═══════════════════════════════════════════
+         SQUAMA — REGISTRO DE BACKUP
+═══════════════════════════════════════════
+Archivo:        ULTIMOBACKNATY.bak
+Ruta:           D:\Backups
+Fecha y hora:   06/07/2026 16:44:57
+Ejecutado por:  naty
+ID Usuario:     2
+───────────────────────────────────────────
+Observaciones:
+BACKUP QUE LE PASO A RAFA PARA QUE PRUEBE LA BASE DE DATOS
+═══════════════════════════════════════════

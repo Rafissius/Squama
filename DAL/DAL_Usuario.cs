@@ -39,6 +39,7 @@ namespace DAL
             };
         }
 
+        
         public int ObtenerRolPorUsuario(int idUsuario)
         {
             SqlCommand cmd = new SqlCommand(@"
@@ -49,6 +50,20 @@ namespace DAL
 
             object resultado = EjecutarScalar(cmd);
             return resultado != null ? Convert.ToInt32(resultado) : 0;
+        }
+        
+        public string ObtenerNombreRolPorUsuario(int idUsuario)
+        {
+            SqlCommand cmd = new SqlCommand(@"
+        SELECT R.Nombre
+        FROM UsuarioRol UR
+        INNER JOIN Rol R ON UR.IDRol = R.IDRol
+        WHERE UR.IDUsuario = @IDUsuario AND UR.Estado = 1");
+
+            cmd.Parameters.AddWithValue("@IDUsuario", idUsuario);
+
+            object resultado = EjecutarScalar(cmd);
+            return resultado != null ? resultado.ToString() : null;
         }
 
         public void SumarIntentoFallido(int idUsuario)
@@ -61,5 +76,69 @@ namespace DAL
             cmd.Parameters.AddWithValue("@IDUsuario", idUsuario);
             EjecutarNonQuery(cmd);
         }
+
+
+        /////////MODULO REGISTRAR USUARIO
+
+
+        public int Insertar(BE_Usuario usuario)
+        {
+            string query = @"INSERT INTO Usuario
+                                (NombreUsuario, Email, PasswordHash, FechaRegistro, Estado, Bloqueado, IntentosFallidos)
+                             OUTPUT INSERTED.IDUsuario
+                             VALUES
+                                (@NombreUsuario, @Email, @PasswordHash, @FechaRegistro, @Estado, @Bloqueado, @IntentosFallidos)";
+
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@NombreUsuario", usuario.NombreUsuario);
+            cmd.Parameters.AddWithValue("@Email", usuario.Email);
+            cmd.Parameters.AddWithValue("@PasswordHash", usuario.PasswordHash);
+            cmd.Parameters.AddWithValue("@FechaRegistro", usuario.FechaRegistro);
+            cmd.Parameters.AddWithValue("@Estado", usuario.Estado);
+            cmd.Parameters.AddWithValue("@Bloqueado", usuario.Bloqueado);
+            cmd.Parameters.AddWithValue("@IntentosFallidos", usuario.IntentosFallidos);
+
+            object resultado = EjecutarScalar(cmd);
+            return Convert.ToInt32(resultado);
+        }
+
+        public void AsignarRolPredeterminado(int idUsuario, int idRol)
+        {
+            string query = @"INSERT INTO UsuarioRol
+                                (IDUsuario, IDRol, FechaAsignacion, Estado)
+                             VALUES
+                                (@IDUsuario, @IDRol, @FechaAsignacion, @Estado)";
+
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@IDUsuario", idUsuario);
+            cmd.Parameters.AddWithValue("@IDRol", idRol);
+            cmd.Parameters.AddWithValue("@FechaAsignacion", DateTime.Now);
+            cmd.Parameters.AddWithValue("@Estado", 1);
+
+            EjecutarNonQuery(cmd);
+        }
+
+        public bool ExisteNombreUsuario(string nombreUsuario)
+        {
+            string query = "SELECT COUNT(1) FROM Usuario WHERE NombreUsuario = @NombreUsuario";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
+
+            object resultado = EjecutarScalar(cmd);
+            return Convert.ToInt32(resultado) > 0;
+        }
+
+        public bool ExisteEmail(string email)
+        {
+            string query = "SELECT COUNT(1) FROM Usuario WHERE Email = @Email";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@Email", email);
+
+            object resultado = EjecutarScalar(cmd);
+            return Convert.ToInt32(resultado) > 0;
+        }
+
+        /////////MODULO REGISTRAR USUARIO
+
     }
 }

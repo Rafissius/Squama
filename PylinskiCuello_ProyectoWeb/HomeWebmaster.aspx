@@ -33,6 +33,15 @@
 <body>
     <form id="form1" runat="server">
 
+   <!-- SESION UNICA -->
+        <asp:ScriptManager ID="ScriptManagerSesion" runat="server" />
+<asp:UpdatePanel ID="UpdatePanelSesion" runat="server">
+    <ContentTemplate>
+        <asp:Timer ID="TimerSesion" runat="server" Interval="1000" OnTick="TimerSesion_Tick" />
+    </ContentTemplate>
+</asp:UpdatePanel>
+           <!-- SESION UNICA -->
+
 <div class="page">
   <div class="bg-stripes"   aria-hidden="true"></div>
   <div class="bg-vignette"  aria-hidden="true"></div>
@@ -54,7 +63,7 @@
         <a href="EnConstruccionWebmaster.aspx">Usuarios</a>
         <a href="EnConstruccionWebmaster.aspx">Perfiles</a>
         <a href="BitacoraEventos.aspx">Bit&aacute;cora</a>
-        <a href="EnConstruccionWebmaster.aspx">Backup/Restore</a>
+        <a href="BackUpYRestore.aspx">Backup/Restore</a>
         <a href="EnConstruccionWebmaster.aspx">Seguridad</a>
       </div>
 
@@ -143,7 +152,7 @@
             <p class="card-title">Backup / Restore</p>
             <p class="card-desc">Genera copias de seguridad de la base de datos y restaura desde versiones anteriores.</p>
             <div class="card-status" style="background:rgba(71,217,107,.15);border:1px solid rgba(71,217,107,.45);color:var(--c-backup)">&Uacute;ltimo backup: hoy 03:00 &mdash; OK</div>
-            <button type="button" class="card-btn" style="background:rgba(71,217,107,.85);color:#0a2010" onclick="location.href='EnConstruccionWebmaster.aspx'">Gestionar backups</button>
+            <button type="button" class="card-btn" style="background:rgba(71,217,107,.85);color:#0a2010" onclick="location.href='BackUpYRestore.aspx'">Gestionar backups</button>
           </div>
         </div>
 

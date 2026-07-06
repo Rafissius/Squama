@@ -45,7 +45,7 @@ namespace PylinskiCuello_ProyectoWeb
                 // Abandon() (no Clear()) para que quede realmente sin sesión, no solo
                 // vacía con el mismo SessionID. Se llama DESPUÉS de leer/evaluar el rol,
                 // nunca antes (si no, se pierde la posibilidad de reconocer al webmaster).
-                ctx.Session.Abandon();
+               // ctx.Session.Abandon();
                 ctx.Response.Redirect("~/SistemaBloqueado.aspx");
             }
 

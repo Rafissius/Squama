@@ -32,45 +32,55 @@
        BR: landscape rotado 180deg
   ============================================================ -->
 
-  <!-- TL: landscape, sin rotacion -->
-  <div class="corner-tl" aria-hidden="true">
-    <img src="https://www.figma.com/api/mcp/asset/40819d3a-535b-4643-815c-46bfb25c8168"
-         alt="" loading="eager" />
-  </div>
+<!-- TL: landscape, sin rotacion -->
+<div class="corner-tl" aria-hidden="true">
+    <img
+        src="<%= ResolveUrl("~/Imagenes/arder.png") %>"
+        alt=""
+        loading="eager" />
+</div>
 
   <!-- TR: contenedor portrait, inner landscape rotate(90deg) -->
   <div class="corner-tr-wrap" aria-hidden="true">
     <div class="corner-tr-inner">
-      <img src="https://www.figma.com/api/mcp/asset/40819d3a-535b-4643-815c-46bfb25c8168"
-           alt="" loading="eager" />
+       <img
+     src="<%= ResolveUrl("~/Imagenes/arder.png") %>"
+     alt=""
+     loading="eager" />
     </div>
   </div>
 
   <!-- BR: landscape rotate(180deg) -->
   <div class="corner-br-wrap" aria-hidden="true">
     <div class="corner-br-inner">
-      <img src="https://www.figma.com/api/mcp/asset/40819d3a-535b-4643-815c-46bfb25c8168"
-           alt="" loading="eager" />
+      <img
+     src="<%= ResolveUrl("~/Imagenes/arder.png") %>"
+     alt=""
+     loading="eager" />
     </div>
   </div>
 
   <!-- BL: contenedor portrait, inner landscape rotate(-90deg) -->
   <div class="corner-bl-wrap" aria-hidden="true">
     <div class="corner-bl-inner">
-      <img src="https://www.figma.com/api/mcp/asset/40819d3a-535b-4643-815c-46bfb25c8168"
-           alt="" loading="eager" />
+       <img
+     src="<%= ResolveUrl("~/Imagenes/arder.png") %>"
+     alt=""
+     loading="eager" />
     </div>
   </div>
 
   <!-- Dragones laterales -->
-  <div class="dragon-wrap dragon-left" aria-hidden="true">
-    <img src="https://www.figma.com/api/mcp/asset/3dd57255-444b-4581-b335-c077006c9dac"
-         alt="" loading="lazy" />
-  </div>
-  <div class="dragon-wrap dragon-right" aria-hidden="true">
-    <img src="https://www.figma.com/api/mcp/asset/6841b2d5-920a-44b0-9f53-abe3fc75a365"
-         alt="" loading="lazy" />
-  </div>
+<div class="dragon-wrap dragon-left" aria-hidden="true">
+    <img src="<%= ResolveUrl("~/Imagenes/g.png") %>"
+         alt=""
+         loading="lazy" />
+</div>
+ <div class="dragon-wrap dragon-right" aria-hidden="true">
+    <img src="<%= ResolveUrl("~/Imagenes/g2.png") %>"
+         alt=""
+         loading="lazy" />
+</div>
 
   <div class="divider-top"    aria-hidden="true"></div>
   <div class="divider-bottom" aria-hidden="true"></div>
@@ -81,11 +91,11 @@
   <main class="content">
 
     <h1 class="logo" aria-label="SQUAMA">
-      <img
-        class="logo-s-img"
-        src="https://www.figma.com/api/mcp/asset/50ecd4aa-2f93-403e-b84a-d3d4ae6c5a8e"
-        alt="S" loading="eager"
-      />
+<img
+    class="logo-s-img"
+    src="<%= ResolveUrl("~/Imagenes/titulo.png") %>"
+    alt="S"
+    loading="eager" />
       <span class="logo-text">QUAMA</span>
     </h1>
 
@@ -94,7 +104,7 @@
 
     <div class="btn-group">
       <button class="btn btn-primary"
-              onclick="window.location.href='/LoginIniciarSesion'">
+              onclick="window.location.href='LoginIniciarSesion.aspx'">
         Ingresar a Squama
       </button>
       <div class="no-account-wrap" aria-hidden="true">
@@ -103,7 +113,7 @@
         <div class="sep-line"></div>
       </div>
       <button class="btn btn-secondary"
-              onclick="location.href='#register'">
+              onclick="location.href='RegistrarUsuario.aspx'">
         Crear una cuenta
       </button>
     </div>

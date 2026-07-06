@@ -24,6 +24,16 @@
 </head>
 <body>
     <form id="frmBitacora" runat="server">
+
+               <!-- SESION UNICA -->
+        <asp:ScriptManager ID="ScriptManagerSesion" runat="server" />
+<asp:UpdatePanel ID="UpdatePanelSesion" runat="server">
+    <ContentTemplate>
+        <asp:Timer ID="TimerSesion" runat="server" Interval="1000" OnTick="TimerSesion_Tick" />
+    </ContentTemplate>
+</asp:UpdatePanel>
+           <!-- SESION UNICA -->
+
 <div class="page">
   <div class="bg-stripes" aria-hidden="true"></div>
   <div class="bg-vignette" aria-hidden="true"></div>
@@ -44,7 +54,7 @@
       <a href="EnConstruccionWebmaster.aspx">Usuarios</a>
       <a href="EnConstruccionWebmaster.aspx">Perfiles</a>
       <a href="BitacoraEventos.aspx" class="active">Bit&aacute;cora</a>
-      <a href="EnConstruccionWebmaster.aspx">Backup/Restore</a>
+      <a href="BackUpYRestore.aspx">Backup/Restore</a>
       <a href="EnConstruccionWebmaster.aspx">Seguridad</a>
     </div>
     <button type="button" class="nav-hamburger" onclick="toggleNav()" aria-label="Abrir menú">&#9776;</button>

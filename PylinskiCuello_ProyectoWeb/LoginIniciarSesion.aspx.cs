@@ -61,26 +61,39 @@ namespace PylinskiCuello_ProyectoWeb
              SERVICIOS.SERVICIOS_Bitacora.RegistrarEvento(usuario.IDUsuario ,1, Request.UserHostAddress);
 
             Session["Usuario"] = usuario;
+            // NUEVO: registra esta sesión como la única válida para este usuario
+            SERVICIOS.SesionActivaSingleton.Instancia.RegistrarSesion(usuario.IDUsuario, Session.SessionID);
+            
 
-            // Caso 4: login exitoso → redirigir según rol
-            switch (usuario.IDRol)
+            string nombreRol = bll.ObtenerNombreRol(usuario.IDUsuario);
+
+            switch (nombreRol)
             {
-                case 1:
-
+                case "Webmaster":
                     Response.Redirect("HomeWebMaster.aspx");
-
-
                     break;
-                case 2:
+                case "Administrador":
                     Response.Redirect("HomeAdministrador.aspx");
                     break;
-                case 3:
+                case "Jugador":
                     Response.Redirect("HomeJugador.aspx");
                     break;
                 default:
                     pMensaje.InnerText = "Rol no reconocido. Contactá al administrador.";
                     break;
             }
+
+
         }
+
+
+        protected void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RegistrarUsuario.aspx");
+        
+        }
+
+
+
     }
 }

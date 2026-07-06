@@ -1,4 +1,4 @@
-//------------------------------------------------------------------------------
+﻿//------------------------------------------------------------------------------
 // <generado automáticamente>
 //     Este código fue generado por una herramienta.
 //
@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace PylinskiCuello_ProyectoWeb.Webmaster
+namespace PylinskiCuello_ProyectoWeb
 {
 
 
-    public partial class ResolverIntegridad
+    public partial class BackUpYRestore
     {
 
         /// <summary>
@@ -51,93 +51,84 @@ namespace PylinskiCuello_ProyectoWeb.Webmaster
         protected global::System.Web.UI.Timer TimerSesion;
 
         /// <summary>
-        /// Control pMensaje.
+        /// Control txtNombreArchivo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pMensaje;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNombreArchivo;
 
         /// <summary>
-        /// Control lblCantidadInconsistencias.
+        /// Control txtRutaDestino.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadInconsistencias;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtRutaDestino;
 
         /// <summary>
-        /// Control lblFechaBloqueo.
+        /// Control txtObservacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaBloqueo;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtObservacion;
 
         /// <summary>
-        /// Control lblMotivoBloqueo.
+        /// Control divMensajeBackup.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMotivoBloqueo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMensajeBackup;
 
         /// <summary>
-        /// Control btnRecalcular.
+        /// Control btnGenerarBackup.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRecalcular;
+        protected global::System.Web.UI.WebControls.Button btnGenerarBackup;
 
         /// <summary>
-        /// Control ddlBackups.
+        /// Control hdnRutaBAK.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlBackups;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnRutaBAK;
 
         /// <summary>
-        /// Control btnRestaurar.
+        /// Control txtMotivoRestore.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRestaurar;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtMotivoRestore;
 
         /// <summary>
-        /// Control pnlSinBackups.
+        /// Control divMensajeRestore.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSinBackups;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMensajeRestore;
 
         /// <summary>
-        /// Control rptInconsistencias.
+        /// Control btnConfirmarRestore.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptInconsistencias;
-
-        /// <summary>
-        /// Control pnlSinInconsistencias.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSinInconsistencias;
+        protected global::System.Web.UI.WebControls.Button btnConfirmarRestore;
     }
 }

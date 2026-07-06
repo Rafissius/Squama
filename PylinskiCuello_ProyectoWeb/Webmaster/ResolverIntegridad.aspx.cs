@@ -26,6 +26,14 @@ namespace PylinskiCuello_ProyectoWeb.Webmaster
             }
         }
 
+        //SESION UNICA
+        protected void TimerSesion_Tick(object sender, EventArgs e)
+        {
+            // Vacío a propósito: el postback generado por el Timer
+            // es interceptado por SesionUnicaModule. Si la sesión
+            // ya no es válida, el módulo redirige solo antes de llegar acá.
+        }
+
         private void CargarResumen()
         {
             lblCantidadInconsistencias.Text = EstadoSistema.CantidadInconsistencias.ToString();

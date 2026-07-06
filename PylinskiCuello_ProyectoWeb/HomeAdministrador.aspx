@@ -33,6 +33,15 @@
 <body>
         <form id="form1" runat="server">
 
+                   <!-- SESION UNICA -->
+        <asp:ScriptManager ID="ScriptManagerSesion" runat="server" />
+<asp:UpdatePanel ID="UpdatePanelSesion" runat="server">
+    <ContentTemplate>
+        <asp:Timer ID="TimerSesion" runat="server" Interval="1000" OnTick="TimerSesion_Tick" />
+    </ContentTemplate>
+</asp:UpdatePanel>
+           <!-- SESION UNICA -->
+
 <div class="page">
   <div class="bg-stripes"   aria-hidden="true"></div>
   <div class="bg-vignette"  aria-hidden="true"></div>

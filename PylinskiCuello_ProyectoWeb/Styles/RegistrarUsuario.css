@@ -1,0 +1,382 @@
+/* ===== Reset y base ===== */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.registro-body {
+    min-height: 100vh;
+    width: 100%;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: radial-gradient(ellipse at center, #5a0a10 0%, #33030a 55%, #1a0505 100%);
+    color: #e0cc9e;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CLAVE: el <form runat="server"> es hijo directo del body y tambien
+   tiene que estirarse, si no el marco interno nunca llega al 100% */
+.registro-body form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Marco general: ocupa TODA la pantalla y centra su contenido */
+.registro-marco {
+    flex: 1;
+    width: 100%;
+    border: 4px solid #a67a14;
+    outline: 2px solid rgba(242, 209, 128, 0.35);
+    outline-offset: -10px;
+    padding: clamp(20px, 3vw, 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+/* ===== Encabezado ===== */
+.registro-header {
+    text-align: center;
+}
+
+.registro-titulo {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: bold;
+    color: #ebd9ad;
+    letter-spacing: 4px;
+    margin: 0 0 4px;
+}
+
+.registro-subtitulo {
+    font-size: clamp(14px, 1.5vw, 20px);
+    color: #f2d180;
+    margin: 0;
+}
+
+/* ===== Layout general: grid de 3 columnas =====
+   col 1: espacio flexible (vacio)
+   col 2: card, centrada respecto al ancho TOTAL
+   col 3: beneficios, empujado hacia la derecha            */
+.registro-layout {
+    width: 100%;
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: 1fr minmax(480px, 600px) 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+/* ===== Card del formulario ===== */
+.registro-card {
+    grid-column: 2;
+    background: linear-gradient(180deg, rgba(82,10,13,0.97) 0%, rgba(61,8,10,0.97) 50%, rgba(82,10,13,0.97) 100%);
+    border: 2px solid rgba(166, 122, 20, 0.7);
+    border-radius: 16px;
+    box-shadow: 0 0 0 4px #d9ad26, 0 12px 30px rgba(0,0,0,0.55);
+    padding: 36px 44px 46px;
+    width: 100%;
+}
+
+.card-titulo {
+    text-align: center;
+    color: #f2d180;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 6px;
+}
+
+.card-descripcion {
+    text-align: center;
+    color: #e0cc9e;
+    font-size: 13px;
+    margin: 0 0 22px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(242,209,128,0.4);
+}
+
+/* ===== Mensajes de estado ===== */
+.mensaje {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    padding: 0;
+}
+
+.mensaje:empty {
+    display: none;
+}
+
+.mensaje-exito {
+    display: block;
+    padding: 10px;
+    background: rgba(71, 217, 107, 0.12);
+    border: 1px solid rgba(71, 217, 107, 0.4);
+    color: #a9f5bd;
+}
+
+.mensaje-error {
+    display: block;
+    padding: 10px;
+    background: rgba(217, 71, 71, 0.12);
+    border: 1px solid rgba(217, 71, 71, 0.4);
+    color: #f5a9a9;
+}
+
+/* ===== Formulario ===== */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.form-group-mitad {
+    flex: 1 1 200px;
+}
+
+.form-label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    color: #f2d180;
+    margin-bottom: 6px;
+}
+
+.form-control {
+    width: 100%;
+    height: 46px;
+    background-color: rgba(36, 5, 5, 0.85);
+    border: 1.5px solid rgba(166, 122, 20, 0.65);
+    border-radius: 8px;
+    padding: 0 14px;
+    color: #f5e8bf;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #8c6647;
+}
+
+.form-control:focus {
+    border-color: #f2d180;
+    box-shadow: 0 0 0 2px rgba(242, 209, 128, 0.25);
+}
+
+.form-error {
+    display: block;
+    color: #ff8a8a;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-label {
+    font-size: 12px;
+    color: #e0cc9e;
+}
+
+/* ===== Botones ===== */
+.btn-primario {
+    width: 100%;
+    height: 54px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(242, 209, 128, 0.7);
+    background: linear-gradient(90deg, #bf8c1f 0%, #80520a 100%);
+    color: #1a0505;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primario:hover {
+    filter: brightness(1.1);
+}
+
+.separador-o {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #a67a14;
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+.separador-o::before,
+.separador-o::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(166, 122, 20, 0.55);
+}
+
+.separador-o span {
+    padding: 0 12px;
+}
+
+.texto-secundario {
+    text-align: center;
+    color: #e0cc9e;
+    font-size: 12px;
+    margin: 0 0 12px;
+}
+
+.btn-secundario {
+    display: block;
+    width: 100%;
+    height: 54px;
+    line-height: 54px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1.5px solid rgba(166, 122, 20, 0.7);
+    background: rgba(56, 10, 10, 0.7);
+    color: #f2d180;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.btn-secundario:hover {
+    background: rgba(56, 10, 10, 0.9);
+}
+
+.link-volver {
+    display: block;
+    text-align: center;
+    margin-top: 26px;
+    color: #a67a14;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.link-volver:hover {
+    color: #f2d180;
+}
+
+/* ===== Panel de beneficios ===== */
+.registro-beneficios {
+    grid-column: 3;
+    justify-self: end;
+    width: 100%;
+    max-width: 380px;
+}
+
+.registro-beneficios h3 {
+    color: #ffe066;
+    font-size: 14px;
+    margin: 0 0 12px;
+}
+
+.registro-beneficios ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.beneficio {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: #f5e8bf;
+}
+
+.beneficio-punto {
+    width: 9px;
+    height: 9px;
+    min-width: 9px;
+    border-radius: 50%;
+}
+
+.beneficio-dorado { background: rgba(255,224,102,0.1); border: 1px solid rgba(255,224,102,0.35); }
+.beneficio-dorado .beneficio-punto { background: #ffe066; }
+
+.beneficio-azul { background: rgba(153,199,255,0.1); border: 1px solid rgba(153,199,255,0.35); }
+.beneficio-azul .beneficio-punto { background: #99c7ff; }
+
+.beneficio-verde { background: rgba(71,217,107,0.1); border: 1px solid rgba(71,217,107,0.35); }
+.beneficio-verde .beneficio-punto { background: #47d96b; }
+
+.beneficio-violeta { background: rgba(184,107,242,0.1); border: 1px solid rgba(184,107,242,0.35); }
+.beneficio-violeta .beneficio-punto { background: #b86bf2; }
+
+.beneficio-naranja { background: rgba(242,158,56,0.1); border: 1px solid rgba(242,158,56,0.35); }
+.beneficio-naranja .beneficio-punto { background: #f29e38; }
+
+/* ===== Pie ===== */
+.pie-frase {
+    color: #d9ad26;
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+}
+
+/* ===== RESPONSIVE / ADAPTIVE ===== */
+
+/* Ventanas mas angostas: el grid pasa a columna unica, todo apilado y centrado */
+@media (max-width: 1100px) {
+    .registro-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .registro-card {
+        max-width: 560px;
+    }
+
+    .registro-beneficios {
+        max-width: 560px;
+        width: 100%;
+    }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+    .registro-marco {
+        padding: 16px;
+        border-width: 2px;
+        gap: 16px;
+    }
+
+    .registro-card {
+        padding: 24px 18px 30px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .btn-secundario,
+    .btn-primario {
+        height: 48px;
+        font-size: 14px;
+    }
+}

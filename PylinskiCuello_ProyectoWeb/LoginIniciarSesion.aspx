@@ -29,9 +29,11 @@
     <header class="header">
       <div class="hline" aria-hidden="true"></div>
       <div class="logo-wrap">
-        <img class="logo-img"
-             src="https://www.figma.com/api/mcp/asset/005d687f-598b-4741-965e-49c2cdd0491f"
-             alt="SQUAMA logo" loading="eager" />
+        <img
+    class="logo-s-img"
+    src="<%= ResolveUrl("~/Imagenes/titulo.png") %>"
+    alt="S"
+    loading="eager" />
         <span class="logo-name">QUAMA</span>
       </div>
       <p class="logo-sub">Iniciar Sesión</p>
@@ -104,11 +106,12 @@
           <p class="new-text">¿Eres nuevo en Squama?</p>
 
           <button class="btn btn-secondary"
-                  onclick="window.location.href='#register'; return false;">
+                runat="server"
+                  onserverclick="btnRegistrar_Click">
             Crear una cuenta nueva
           </button>
 
-          <a class="back-link" href="squama-landing.html">← Volver al inicio</a>
+          <a class="back-link" href="Login.aspx">← Volver al inicio</a>
 
           <div class="card-bottom-line" aria-hidden="true"></div>
         </div>

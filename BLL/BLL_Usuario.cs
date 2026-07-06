@@ -40,7 +40,7 @@ namespace BLL
                 return usuario;                // La GUI detecta clave incorrecta
             }
 
-            // Login exitoso: obtener rol
+            // Login exitoso: obtener rol-
             usuario.IDRol = dal.ObtenerRolPorUsuario(usuario.IDUsuario);
             // La verificación de integridad NO vive acá: la dispara Application_Start
             // (al arrancar) y el timer periódico (SERVICIOS_DigitoVerificador vía Global.asax).
@@ -48,6 +48,11 @@ namespace BLL
             // en cada request si EstadoSistema.Bloqueado ya está en true.
             usuario.PasswordHash = null; // no exponer el hash
             return usuario;
+        }
+
+        public string ObtenerNombreRol(int idUsuario)
+        {
+            return dal.ObtenerNombreRolPorUsuario(idUsuario);
         }
 
         private string HashSHA256(string texto)
@@ -61,5 +66,55 @@ namespace BLL
                 return sb.ToString();
             }
         }
+
+
+
+        /////////MODULO REGISTRAR USUARIO
+
+
+        /// <summary>
+        /// Registra un nuevo usuario: hashea la clave, completa los campos
+        /// automaticos, inserta en Usuario y asigna el rol por defecto (IDRol = 3)
+        /// en UsuarioRol. Devuelve el IDUsuario generado.
+        /// </summary>
+        public int RegistrarUsuario(BE_Usuario usuario)
+        {
+            if (string.IsNullOrWhiteSpace(usuario.NombreUsuario))
+                throw new Exception("El nombre de usuario es obligatorio.");
+
+            if (string.IsNullOrWhiteSpace(usuario.Email))
+                throw new Exception("El correo electronico es obligatorio.");
+
+            if (string.IsNullOrWhiteSpace(usuario.PasswordHash))
+                throw new Exception("La clave es obligatoria.");
+
+            if (dal.ExisteNombreUsuario(usuario.NombreUsuario))
+                throw new Exception("Ese nombre de usuario ya esta en uso.");
+
+            if (dal.ExisteEmail(usuario.Email))
+                throw new Exception("Ese correo electronico ya esta registrado.");
+
+            // Hasheo de la clave (llega en texto plano desde la GUI en este campo)
+            usuario.PasswordHash = HashSHA256(usuario.PasswordHash);
+
+            // Campos automaticos / de negocio
+            usuario.FechaRegistro = DateTime.Now;
+            usuario.Estado = 1;
+            usuario.Bloqueado = false;
+            usuario.IntentosFallidos = 0;
+
+            int idGenerado = dal.Insertar(usuario);
+            usuario.IDUsuario = idGenerado;
+
+            // Rol por defecto para todo usuario nuevo
+            const int ID_ROL_POR_DEFECTO = 3;
+            dal.AsignarRolPredeterminado(idGenerado, ID_ROL_POR_DEFECTO);
+
+            return idGenerado;
+        }
+
+       
+        /////////MODULO REGISTRAR USUARIO
+
     }
 }
