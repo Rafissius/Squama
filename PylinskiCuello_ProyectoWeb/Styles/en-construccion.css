@@ -1,0 +1,64 @@
+/* ============================================================
+   en-construccion.css — SQUAMA WIP / En Construccion section
+   ============================================================ */
+
+.wip-section {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: clamp(40px,8vh,100px) 24px; text-align: center; gap: 20px;
+}
+
+.wip-icon {
+  width: 90px; height: 90px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(61,36,13,.97), rgba(41,23,8,.97));
+  border: 2px solid var(--c-role-border, rgba(217,173,38,.40));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 38px;
+  box-shadow: 0 0 40px var(--c-role-bg, rgba(217,173,38,.15));
+}
+
+.wip-divider-top {
+  width: min(400px,60%); height: 2px;
+  background: linear-gradient(to right, transparent, rgba(217,173,38,.60), transparent);
+}
+
+.wip-badge {
+  display: inline-block; padding: 3px 18px; border-radius: 14px;
+  border: 1px solid var(--c-role-border, rgba(217,173,38,.50));
+  background: var(--c-role-bg, rgba(217,173,38,.12));
+  font-size: 10px; font-weight: 700;
+  color: var(--c-role, var(--gold)); letter-spacing: 2px;
+}
+
+.wip-title {
+  font-size: clamp(28px,5vw,56px); font-weight: 900; color: #ffe066;
+  letter-spacing: 2px; line-height: 1;
+  text-shadow: 0 0 40px rgba(255,224,102,.20), 0 4px 8px rgba(0,0,0,.8);
+}
+
+.wip-sub {
+  font-size: clamp(13px,1.4vw,18px); font-weight: 700;
+  color: var(--gold-mid); letter-spacing: 1px;
+}
+
+.wip-desc {
+  font-family: 'IM Fell English', serif; font-style: italic;
+  font-size: clamp(13px,1.3vw,17px); color: #f5e8bf;
+  max-width: 500px; line-height: 1.7;
+}
+
+.wip-divider-bot {
+  width: min(300px,50%); height: 1px;
+  background: linear-gradient(to right, transparent, rgba(217,173,38,.40), transparent);
+}
+
+.wip-btn {
+  padding: 12px 36px; border-radius: 10px;
+  border: 1.5px solid rgba(217,173,38,.70);
+  background: linear-gradient(135deg, rgba(191,140,31,.85), rgba(128,82,10,.85));
+  color: #1f1205; font-family: 'Cinzel', serif;
+  font-size: 14px; font-weight: 700; letter-spacing: 1px;
+  cursor: pointer; transition: filter .2s, transform .15s;
+}
+.wip-btn:hover  { filter: brightness(1.15); transform: translateY(-2px); }
+.wip-btn:active { filter: brightness(.90);  transform: translateY(1px);  }

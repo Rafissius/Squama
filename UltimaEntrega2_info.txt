@@ -1,0 +1,12 @@
+﻿═══════════════════════════════════════════
+         SQUAMA — REGISTRO DE BACKUP
+═══════════════════════════════════════════
+Archivo:        UltimaEntrega2.bak
+Ruta:           C:\Backups
+Fecha y hora:   07/07/2026 02:11:07
+Ejecutado por:  naty
+ID Usuario:     2
+───────────────────────────────────────────
+Observaciones:
+UltimaParaNaty
+═══════════════════════════════════════════

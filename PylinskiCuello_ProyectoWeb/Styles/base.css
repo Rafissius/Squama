@@ -1,0 +1,99 @@
+/* ============================================================
+   base.css — SQUAMA shared base styles
+   Variables, reset, backgrounds, border-frame, animations
+   ============================================================ */
+
+:root {
+  --bg:         #2e1a0a;
+  --gold:       #d9ad26;
+  --gold-inner: rgba(242,209,128,0.35);
+  --gold-light: #f2d180;
+  --gold-mid:   #ebd9ad;
+  --stripe:     rgba(82,46,20,0.14);
+  --card-a:     rgba(61,36,13,0.97);
+  --card-b:     rgba(41,23,8,0.97);
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  min-height: 100dvh;
+  background: var(--bg);
+  font-family: 'Cinzel', serif;
+}
+
+/* ── PAGE ── */
+.page {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* ── BACKGROUNDS ── */
+.bg-stripes {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--stripe) 0, var(--stripe) 26px,
+    transparent 26px, transparent 50px
+  );
+}
+
+.bg-vignette {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 50%,
+    transparent 25%, rgba(0,0,0,.30) 60%, rgba(0,0,0,.80) 100%);
+}
+
+.bg-sides {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(to right, rgba(46,26,10,.60) 0%, transparent 18%),
+    linear-gradient(to left,  rgba(46,26,10,.60) 0%, transparent 18%);
+}
+
+/* bg-glow: position/layout only — background varies per page (set via :root --glow-bg or inline) */
+.bg-glow {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw; height: 65vh;
+  border-radius: 50%;
+}
+
+/* ── BORDER FRAME ── */
+.border-frame {
+  position: fixed; inset: 0; z-index: 50; pointer-events: none;
+  box-shadow: inset 0 0 0 4px var(--gold);
+}
+.border-frame::after {
+  content: '';
+  position: absolute; inset: 12px;
+  border: 2px solid var(--gold-inner);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
